@@ -6,25 +6,21 @@
         xmlns:local="clr-namespace:SchoolApplication.View" xmlns:viewmodel="clr-namespace:SchoolApplication.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:AppVM}"
         mc:Ignorable="d"
          Title="Школа №1" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-
-        <Border Background="LightBlue"  Opacity="1">
-            <StackPanel
-            Opacity="1"
-            HorizontalAlignment="Left"
-            Orientation="Vertical"
-            Grid.Row="0">
-                <Label Content="{Binding Name}" />
-                <Label Content="{Binding Surname}" />
-                <Label Content="{Binding Age}"/>
-            </StackPanel>
-        </Border>
-    </Grid>
+    <DataGrid
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Goods}">
+        <DataGrid.Columns>
+            <DataGridTextColumn
+                    Header="Имя"
+                    Binding="{Binding Name}"
+                    />
+            <DataGridTextColumn
+                    Header="Фамилия"
+                    Binding="{Binding Surname}" />
+            <DataGridTextColumn
+                    Header="Возраст"
+                    Binding="{Binding Age}" />
+        </DataGrid.Columns>
+    </DataGrid>
 </Window>
